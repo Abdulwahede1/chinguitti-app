@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -17,7 +18,7 @@
 
     <div class="bg-slate-800 p-4 rounded-xl mb-6 shadow border border-slate-700">
         <label class="block text-sm font-medium mb-2 text-amber-400">إعداد مفتاح Gemini API:</label>
-        <input type="password" id="apiKey" placeholder="ألصق مفتاح AIzaSy... هنا" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-500">
+        <input type="password" id="apiKey" placeholder="ألصق مفتاح API هنا" class="w-full p-2.5 rounded bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-500">
         <button onclick="saveKey()" class="w-full mt-2 bg-amber-600 hover:bg-amber-700 text-white py-2 rounded font-medium text-sm transition">حفظ المفتاح</button>
         <p id="keyStatus" class="text-xs text-slate-400 mt-2 text-center"></p>
     </div>
@@ -50,23 +51,11 @@
 
     <script>
         function saveKey() {
-            const key = document.getElementById('apiKey').value;
-            if(key.startsWith('AIzaSy')) {
+            const key = document.getElementById('apiKey').value.trim();
+            if(key.length > 10) {
                 localStorage.setItem('gemini_key', key);
                 document.getElementById('keyStatus').innerText = '✅ تم حفظ المفتاح بنجاح والتطبيق جاهز!';
                 document.getElementById('keyStatus').className = 'text-xs text-green-400 mt-2 text-center';
             } else {
-                document.getElementById('keyStatus').innerText = '❌ يرجى إدخال مفتاح صحيح يبدأ بـ AIzaSy';
-                document.getElementById('keyStatus').className = 'text-xs text-red-400 mt-2 text-center';
-            }
-        }
-        window.onload = function() {
-            if(localStorage.getItem('gemini_key')) {
-                document.getElementById('apiKey').value = localStorage.getItem('gemini_key');
-                document.getElementById('keyStatus').innerText = '✅ المفتاح محفوظ وجاهز للعمل';
-                document.getElementById('keyStatus').className = 'text-xs text-green-400 mt-2 text-center';
-            }
-        }
-    </script>
-</body>
-</html>
+                document.getElementById('keyStatus').innerText = '❌ يرجى إدخال مفتاح API صحيح';
+                document.getElementById('keyStatus').className = 'text-xs text-red-
