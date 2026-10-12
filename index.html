@@ -52,10 +52,6 @@
     <script>
         function saveKey() {
             const key = document.getElementById('apiKey').value.trim();
-            if(key.length > 10) {
+            if(key.length > 5) {
                 localStorage.setItem('gemini_key', key);
-                document.getElementById('keyStatus').innerText = '✅ تم حفظ المفتاح بنجاح والتطبيق جاهز!';
-                document.getElementById('keyStatus').className = 'text-xs text-green-400 mt-2 text-center';
-            } else {
-                document.getElementById('keyStatus').innerText = '❌ يرجى إدخال مفتاح API صحيح';
-                document.getElementById('keyStatus').className = 'text-xs text-red-
+                document.getElementById('keyStatus').innerText = '✅ تم حفظ المفتاح بنجاح والت
